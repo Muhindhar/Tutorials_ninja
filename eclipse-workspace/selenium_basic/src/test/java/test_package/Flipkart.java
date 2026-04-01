@@ -26,7 +26,7 @@ public class Flipkart {
 
 			
 			String page = driver.getPageSource();
-			//System.out.println(page);
+			
 			System.out.println("PAGE LENGTH : "+page.length());
 			driver.close();
 		}
