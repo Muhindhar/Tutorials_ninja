@@ -8,7 +8,6 @@ import org.testng.annotations.Parameters;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor; 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,13 +23,7 @@ public class Login {
     @Test(dataProvider = "validData", dataProviderClass = com.utilities.ExcelData.class)
     public void validLoginTest(String email, String password) {
 
-       WebElement myAccount = wait.until(
-    ExpectedConditions.elementToBeClickable(
-        By.xpath("//span[normalize-space()='My Account']")));
-
-((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", myAccount);
-
-myAccount.click();
+        driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
         driver.findElement(By.xpath("//a[text()='Login']")).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("input-email")));
