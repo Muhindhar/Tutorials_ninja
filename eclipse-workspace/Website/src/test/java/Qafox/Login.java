@@ -41,7 +41,8 @@ public class Login {
     @Test(dataProvider = "InvalidData", dataProviderClass = com.utilities.ExcelData.class)
     public void invalidLoginTest(String email, String password) {
 
-        driver.findElement(By.xpath("//span[normalize-space()='My Account']")).click();
+    	wait.until(ExpectedConditions.elementToBeClickable(
+    		    By.xpath("//span[normalize-space()='My Account']"))).click();
         driver.findElement(By.xpath("//a[text()='Login']")).click();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("input-email")));
